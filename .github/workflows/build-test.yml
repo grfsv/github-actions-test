@@ -7,27 +7,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-
-      - name: ls check
-        run: ls -la
-      - name: pwd
-        run: pwd
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       - name: cd frontend
-        run: cd ${{ github.workspace }}/frontend-ts
-
+        run: cd frontend
       - name: Install dependencies for frontend
         run: npm install
 
       - name: Build frontend
         run: npm run build
 
-      - run: cd -
+      - run: cd ..
 
       - name: cd bakckend
         run: cd backend-ts
