@@ -13,20 +13,21 @@ jobs:
           node-version: '22'
 
       - name: cd frontend
-        run: cd frontend
-      - name: Install dependencies for frontend
-        run: npm install
+        run: |
+          cd frontend
+          npm install
 
       - name: Build frontend
-        run: npm run build
-
-      - run: cd ..
+        run: |
+          cd frontend
+          npm install
 
       - name: cd bakckend
-        run: cd backend-ts
-
-      - name: Install dependencies for backend
-        run: npm install
+        run: |
+          cd backend-ts
+          npm install
 
       - name: Build buckend
-        run: npm run build
+        run: |
+          cd backend-ts
+          npm run build
