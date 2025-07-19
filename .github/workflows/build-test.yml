@@ -1,0 +1,33 @@
+name: build-test-workflow
+on: [push]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: cd frontend
+        run: cd frontend-ts
+
+      - name: Install dependencies for frontend
+        run: npm install
+
+      - name: Build frontend
+        run: npm run build
+
+      - run: cd -
+
+      - name: cd bakckend
+        run: cd backend-ts
+
+      - name: Install dependencies for backend
+        run: npm install
+
+      - name: Build buckend
+        run: npm run build
